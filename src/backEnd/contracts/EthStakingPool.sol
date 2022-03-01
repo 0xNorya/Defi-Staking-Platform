@@ -63,10 +63,11 @@ contract EthStakingPool {
 
     constructor() public {
         owner = msg.sender;
-        deadline = block.timestamp + 30 days;
-        // deadline = 1611705600; // 01/27/2021 @ 12:00am (UTC)
+        //deadline = block.timestamp + 30 days;
+         deadline = 1646901451; // 03/10/2022 @ 12:00am (UTC)
     }
 
+    //takes in eth
     receive() external payable beforeDeadline notFinalized {
         balances[msg.sender] += msg.value;
         emit EthReceived(msg.sender, msg.value);
@@ -79,6 +80,7 @@ contract EthStakingPool {
         emit Finalize(msg.sender, now);
     }
 
+    //Users can claim and withdraw leftover tokens
     function claim() external isFinalized {
         require(balances[msg.sender] > 0, "balance must be greater than 0");
         require(hasClaimed[msg.sender] == false, "already claimed");
@@ -88,6 +90,7 @@ contract EthStakingPool {
         emit Claim(msg.sender, amount);
     }
 
+    //deposits eth to Node and validates it
     function deposit(
         bytes calldata pubkey,
         bytes calldata withdrawal_credentials,

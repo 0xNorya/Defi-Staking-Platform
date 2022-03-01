@@ -38,7 +38,7 @@ class Main extends Component {
                   <h1>Earn <b className="text-danger">~4-22 APY</b> by staking ETH</h1>
                   <br></br>
                   <h3>Staking Closes at:</h3>
-                  <h3><DateCountdown dateTo='January 27, 2021 00:00:00 GMT+01:00' callback={()=>alert('Time for staking is over!')} /></h3>
+                  <h3><DateCountdown dateTo='March 10, 2022 00:00:00 GMT+01:00' callback={()=>alert('Time for staking is over!')} /></h3>
                   <br></br>
                   <br></br>
                   <br></br>
